@@ -1,23 +1,23 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { CurrencyDataService } from '../../services/currency-data.service';
 
 @Component({
   selector: 'app-currency-selector',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './currency-selector.component.html',
   styleUrl: './currency-selector.component.less'
 })
-export class CurrencySelectorComponent {
+export class CurrencySelectorComponent implements OnInit {
+  
+  public currencyOptions: Array<string> = [];
 
-  private currencyDataService: CurrencyDataService;
-
-  constructor() {
-    this.currencyDataService = new CurrencyDataService();
+  constructor(private currencyDataService: CurrencyDataService) {
   }
 
-  public getCurrencyData() {
-    return this.currencyDataService.getCurrencyData();
+  ngOnInit(): void {
+    this.currencyOptions = this.currencyDataService.getCurrencyOptions();
   }
 
   onSelect(event: Event) {

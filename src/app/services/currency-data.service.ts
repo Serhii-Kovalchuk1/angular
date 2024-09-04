@@ -9,7 +9,7 @@ export class CurrencyDataService {
 
   constructor() { }
 
-  public getCurrencyData() {
+  public getCurrencyOptions() {
     return this.currencyData;
   }
 }

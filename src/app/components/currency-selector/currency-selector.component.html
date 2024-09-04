@@ -1,5 +1,4 @@
 <select (change)="onSelect($event)">
   <option value="" selected disabled>Choose a category</option>
-  <option value="{{ getCurrencyData()[0] }}">{{ getCurrencyData()[0] }}</option>
-  <option value="{{ getCurrencyData()[1] }}">{{ getCurrencyData()[1] }}</option>
+  <option *ngFor="let currency of currencyOptions" value="{{ currency}}">{{ currency }}</option>
 </select>
